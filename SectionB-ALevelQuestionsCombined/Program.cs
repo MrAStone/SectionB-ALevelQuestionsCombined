@@ -14,11 +14,53 @@ namespace SectionB_ALevelQuestionsCombined
         {
             while (true)
             {
-                Console.WriteLine(B2018());
-                Console.ReadLine(B2019());
-                Console.WriteLine(B2020());
-                Console.WriteLine(B2021());
-                Console.WriteLine(B2022());
+
+                List<int> years = new List<string>();
+                for (int i = 2018; i < 2023; i++)
+                {
+                    years.Add(i);
+                }
+
+                int menuOption = 0;
+                bool continue = true;
+                while (continue){
+                    for (int i = 0; i < years.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}: {years[i]}");
+                    }
+                    Console.WriteLine("9: Quit");
+                    Console.Write("Pick a year from the menu: ");
+
+                    menuOption = Convert.ToInt32(Console.ReadLine());
+                    switch menuOption{
+                        case 1:
+                            Console.WriteLine(B2018());
+                            break;
+                        case 2:
+                            Console.ReadLine(B2019());
+                            break;
+                        case 3:
+                            Console.WriteLine(B2020());
+                            break;
+                        case 4:
+                            Console.WriteLine(B2021());
+                            break;
+                        case 5:
+                            Console.WriteLine(B2022());
+                            break;
+                        case 9:
+                            continue = false;
+                            break;
+                        case else:
+                                Console.WriteLine("Not a valid menu Option");
+                            break;
+                    }
+                }
+
+
+
+
+
             }
         }
         static string B2018()
@@ -33,9 +75,9 @@ namespace SectionB_ALevelQuestionsCombined
                 answer = "Not greater than 1";
                 return answer;
             }
-            for(int i = 2; i <= Math.Sqrt(numberFromUser); i++)
+            for (int i = 2; i <= Math.Sqrt(numberFromUser); i++)
             {
-                if(numberFromUser%i == 0)
+                if (numberFromUser % i == 0)
                 {
                     answer = "Is not prime";
                     return answer;
@@ -55,7 +97,7 @@ namespace SectionB_ALevelQuestionsCombined
             input2 = Console.ReadLine();
             char[] word1Ar = input1.ToCharArray();
             char[] word2Ar = input2.ToCharArray();
-            for(int i = 0; i < word1Ar.Length; i++)
+            for (int i = 0; i < word1Ar.Length; i++)
             {
                 for (int j = 0; j < word2Ar.Length; j++)
                 {
@@ -67,14 +109,14 @@ namespace SectionB_ALevelQuestionsCombined
                 }
             }
             int count = 0;
-            for(int i=0; i < word1Ar.Length; i++)
+            for (int i = 0; i < word1Ar.Length; i++)
             {
                 if (word1Ar[i] != '-')
                 {
                     count++;
                 }
             }
-           
+
             if (count == 0)
             {
                 answer = $"{input1} can be made from {input2}";
@@ -92,7 +134,7 @@ namespace SectionB_ALevelQuestionsCombined
             Console.Write("How many numeric digits would you like to enter: ");
             numDigits = Convert.ToInt32(Console.ReadLine());
             int[] nums = new int[10];
-            for(int i = 0;i<numDigits;i++)
+            for (int i = 0; i < numDigits; i++)
             {
                 Console.Write("Enter a number:");
                 int num = Convert.ToInt32(Console.ReadLine());
@@ -106,7 +148,8 @@ namespace SectionB_ALevelQuestionsCombined
                     answer += i.ToString();
                 }
             }
-            if (answer.Length > 1) {
+            if (answer.Length > 1)
+            {
                 answer = "Data was multimodal";
 
             }
@@ -132,9 +175,9 @@ namespace SectionB_ALevelQuestionsCombined
 
                 }
 
-                if (num % total ==0)
+                if (num % total == 0)
                 {
-             
+
                     count++;
                 }
             }
@@ -149,7 +192,7 @@ namespace SectionB_ALevelQuestionsCombined
             char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
             char[] inputAr = input.ToCharArray();
             Stack<char> inputVowels = new Stack<char>();
-         for (int i = 0; i < inputAr.Length; i++)
+            for (int i = 0; i < inputAr.Length; i++)
             {
                 if (vowels.Contains(inputAr[i]))
                 {
@@ -159,7 +202,7 @@ namespace SectionB_ALevelQuestionsCombined
             }
             for (int i = 0; i < inputAr.Length; i++)
             {
-                if (inputAr[i]=='_')
+                if (inputAr[i] == '_')
                 {
                     inputAr[i] = inputVowels.Pop();
                 }
@@ -172,5 +215,5 @@ namespace SectionB_ALevelQuestionsCombined
             return answer;
         }
     }
-    
+
 }
