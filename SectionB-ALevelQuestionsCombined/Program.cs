@@ -12,7 +12,7 @@ namespace SectionB_ALevelQuestionsCombined
         {
             while (true)
             {
-                Console.WriteLine(B2020());
+                Console.WriteLine(B2021());
             }
         }
         static string B2018()
@@ -104,6 +104,35 @@ namespace SectionB_ALevelQuestionsCombined
                 answer = "Data was multimodal";
 
             }
+            return answer;
+        }
+        static int B2021()
+        {
+            int answer = 0;
+            Console.Write("Enter a number: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            int num = 0;
+            int count = 0;
+            while (count < n)
+            {
+                int total = 0;
+                num += 1;
+                foreach (char c in num.ToString())
+                {
+
+                    total += Convert.ToInt32(c) - 48;
+                    // converting a character to integer gets its ASCII value so as '0' is 48, subtract to get integer value
+
+                }
+
+                if (num % total ==0)
+                {
+             
+                    count++;
+                }
+            }
+            answer = num;
             return answer;
         }
     }
