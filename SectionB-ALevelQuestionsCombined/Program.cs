@@ -14,6 +14,10 @@ namespace SectionB_ALevelQuestionsCombined
         {
             while (true)
             {
+                Console.WriteLine(B2018());
+                Console.ReadLine(B2019());
+                Console.WriteLine(B2020());
+                Console.WriteLine(B2021());
                 Console.WriteLine(B2022());
             }
         }
