@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace SectionB_ALevelQuestionsCombined
 {
@@ -12,7 +14,7 @@ namespace SectionB_ALevelQuestionsCombined
         {
             while (true)
             {
-                Console.WriteLine(B2021());
+                Console.WriteLine(B2022());
             }
         }
         static string B2018()
@@ -135,5 +137,36 @@ namespace SectionB_ALevelQuestionsCombined
             answer = num;
             return answer;
         }
+        static string B2022()
+        {
+            string answer = "";
+            Console.Write("Enter a string: ");
+            string input = Console.ReadLine();
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+            char[] inputAr = input.ToCharArray();
+            Stack<char> inputVowels = new Stack<char>();
+         for (int i = 0; i < inputAr.Length; i++)
+            {
+                if (vowels.Contains(inputAr[i]))
+                {
+                    inputVowels.Push(inputAr[i]);
+                    inputAr[i] = '_';
+                }
+            }
+            for (int i = 0; i < inputAr.Length; i++)
+            {
+                if (inputAr[i]=='_')
+                {
+                    inputAr[i] = inputVowels.Pop();
+                }
+            }
+            foreach (char c in inputAr)
+            {
+                answer += c;
+            }
+
+            return answer;
+        }
     }
+    
 }
