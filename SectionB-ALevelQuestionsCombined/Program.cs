@@ -12,56 +12,8 @@ namespace SectionB_ALevelQuestionsCombined
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
+            B2024();
 
-                List<int> years = new List<string>();
-                for (int i = 2018; i < 2023; i++)
-                {
-                    years.Add(i);
-                }
-
-                int menuOption = 0;
-                bool continue = true;
-                while (continue){
-                    for (int i = 0; i < years.Count; i++)
-                    {
-                        Console.WriteLine($"{i + 1}: {years[i]}");
-                    }
-                    Console.WriteLine("9: Quit");
-                    Console.Write("Pick a year from the menu: ");
-
-                    menuOption = Convert.ToInt32(Console.ReadLine());
-                    switch menuOption{
-                        case 1:
-                            Console.WriteLine(B2018());
-                            break;
-                        case 2:
-                            Console.ReadLine(B2019());
-                            break;
-                        case 3:
-                            Console.WriteLine(B2020());
-                            break;
-                        case 4:
-                            Console.WriteLine(B2021());
-                            break;
-                        case 5:
-                            Console.WriteLine(B2022());
-                            break;
-                        case 9:
-                            continue = false;
-                            break;
-                        case else:
-                                Console.WriteLine("Not a valid menu Option");
-                            break;
-                    }
-                }
-
-
-
-
-
-            }
         }
         static string B2018()
         {
@@ -212,6 +164,95 @@ namespace SectionB_ALevelQuestionsCombined
                 answer += c;
             }
 
+            return answer;
+        }
+        static string B2023()
+        {
+            string input="";
+            
+            bool valid = false;
+            while (!valid)
+            {
+                valid = true;
+                Console.Write("Enter a string: ");
+                input = Console.ReadLine();
+                if (input.Length < 5 || input.Length > 7) //not between 5 and 7 chars
+                {
+                    valid = false;
+                }
+                if (input.ToUpper() != input) // not uppercase
+                {
+                    valid = false;
+                }
+                int asciiSum = 0;
+                for (int i = 0; i < input.Length; i++)//loop through string
+                {
+                    asciiSum += input[i]; //add ascii value
+                    if (input.Substring(i + 1).Contains(input[i])) // check for repeating chars
+                    {
+                        valid = false;
+                    }
+                }
+                if (asciiSum < 420 || asciiSum > 600)//not between 420 and 600
+                {
+                    valid = false;
+                }
+                if(!valid)
+                {
+                    Console.WriteLine("Not valid string");
+                }
+            }
+            Console.WriteLine("Valid string");
+            return input;
+        }
+        static string B2024()
+        {
+            string answer="";
+            int input = 0;
+            while (input <= 0)
+            {
+                Console.Write("Enter a number: ");
+                input = Convert.ToInt32(Console.ReadLine());
+            }
+            string num = input.ToString();
+            int incCount = 0;
+            int decCount = 0;
+            int sameCount = 0;
+            
+            for(int i = 0;i< num.Length-1;i++)
+            {
+                int n = num[i] - '0';
+                int next = num[i + 1] - '0';
+                if (next >= n) // counts increase
+                {
+                    incCount++;
+                }
+                if(next <= n) // Counts decrease
+                {
+                    decCount++;
+                }
+                if (next == n) // checks if all numbers are the same 
+                {
+                    sameCount++;
+                }
+            }
+            
+            if(incCount>0 && decCount > 0)
+            {
+                if (incCount == decCount && sameCount !=num.Length-1)
+                {
+                    answer = "Perfectly bouncy number";
+                }
+                else
+                {
+                    answer = "Bouncy number";
+                }
+            }
+            else
+            {
+                answer = "Not bouncy";
+            }
+            Console.WriteLine(answer);
             return answer;
         }
     }
