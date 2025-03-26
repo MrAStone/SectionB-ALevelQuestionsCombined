@@ -12,7 +12,7 @@ namespace SectionB_ALevelQuestionsCombined
     {
         static void Main(string[] args)
         {
-            B2024();
+          
 
         }
         static string B2018()
