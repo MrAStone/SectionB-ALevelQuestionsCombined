@@ -1,7 +1,7 @@
 # All Section B questions - Run as subroutines 
 > [!NOTE]
 > These don't allways fully answer the question as there is often repeat until in the question.
-> As these are all subroutines this has been ommited!
+> As these are all subroutines this has been omited!
 
 ## 2018
 
