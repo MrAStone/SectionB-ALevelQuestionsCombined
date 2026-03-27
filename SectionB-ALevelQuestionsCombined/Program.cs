@@ -12,7 +12,7 @@ namespace SectionB_ALevelQuestionsCombined
     {
         static void Main(string[] args)
         {
-          
+            Console.WriteLine(B2025());
 
         }
         static string B2018()
@@ -168,8 +168,8 @@ namespace SectionB_ALevelQuestionsCombined
         }
         static string B2023()
         {
-            string input="";
-            
+            string input = "";
+
             bool valid = false;
             while (!valid)
             {
@@ -197,7 +197,7 @@ namespace SectionB_ALevelQuestionsCombined
                 {
                     valid = false;
                 }
-                if(!valid)
+                if (!valid)
                 {
                     Console.WriteLine("Not valid string");
                 }
@@ -207,7 +207,7 @@ namespace SectionB_ALevelQuestionsCombined
         }
         static string B2024()
         {
-            string answer="";
+            string answer = "";
             int input = 0;
             while (input <= 0)
             {
@@ -218,8 +218,8 @@ namespace SectionB_ALevelQuestionsCombined
             int incCount = 0;
             int decCount = 0;
             int sameCount = 0;
-            
-            for(int i = 0;i< num.Length-1;i++)
+
+            for (int i = 0; i < num.Length - 1; i++)
             {
                 int n = num[i] - '0';
                 int next = num[i + 1] - '0';
@@ -227,7 +227,7 @@ namespace SectionB_ALevelQuestionsCombined
                 {
                     incCount++;
                 }
-                if(next <= n) // Counts decrease
+                if (next <= n) // Counts decrease
                 {
                     decCount++;
                 }
@@ -236,10 +236,10 @@ namespace SectionB_ALevelQuestionsCombined
                     sameCount++;
                 }
             }
-            
-            if(incCount>0 && decCount > 0)
+
+            if (incCount > 0 && decCount > 0)
             {
-                if (incCount == decCount && sameCount !=num.Length-1)
+                if (incCount == decCount && sameCount != num.Length - 1)
                 {
                     answer = "Perfectly bouncy number";
                 }
@@ -255,6 +255,46 @@ namespace SectionB_ALevelQuestionsCombined
             Console.WriteLine(answer);
             return answer;
         }
-    }
+       static string B2025()
+        {
+            string answer = "";
+            Console.Write("Enter a string: ");
+            string input = Console.ReadLine();
+           
+            string output = "";
+            string onlyLetters = "";
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (char.IsLetter(input[i])) // using built in function to check if char is a letter
+                {
+                    onlyLetters += input[i];
+                }
+            }
+            //
+            //for(int i = 0; i < onlyLetters.Length; i++)
+            //{
+            //    if (Convert.ToInt32(input[i])>=65 && Convert.ToInt32(input[i]) <= 90 || Convert.ToInt32(input[i])>=97 && Convert.ToInt32(input[i]) <= 122) // checks if char is uppercase using ascii values
+            //    {
+            //        onlyLetters += input[i];
+            //    }
 
+            //}
+            int cols;
+            Console.Write("Enter number of columns: ");
+            cols = Convert.ToInt32(Console.ReadLine());
+           
+            int loop = 0;
+            for (int index = 0; index < onlyLetters.Length/cols; index++)
+            {
+
+                for (int i = index; i < onlyLetters.Length; i += cols)
+                {
+                    output += onlyLetters[i];
+
+                }
+            }
+                return output;
+
+        }
+    }
 }
